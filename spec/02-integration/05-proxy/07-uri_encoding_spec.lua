@@ -56,8 +56,8 @@ describe("URI encoding", function()
     local body = assert.res_status(200, res)
     local json = cjson.decode(body)
 
-    assert.equal("25", json.args.limit)
-    assert.equal([[{"or":[{"name":{"like":"%bac%"}}]}]], json.args.where)
+    assert.equal("25", json.uri_args.limit)
+    assert.equal([[{"or":[{"name":{"like":"%bac%"}}]}]], json.uri_args.where)
   end)
 
   it("issue #1480 does not percent-encode args unecessarily", function()
